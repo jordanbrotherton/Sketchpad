@@ -30,13 +30,11 @@ func test_canvas_has_onion_skin_renderer():
 	assert_not_null(renderer, "Canvas should have onion skin renderer node")
 
 func test_canvas_toggle_onion_skin_works():
-	# Just verify the method doesn't throw an error
 	canvas.toggle_onion_skin()
 	canvas.toggle_onion_skin()
 	assert_true(true, "Canvas toggle_onion_skin should work without error")
 
 func test_canvas_set_onion_skin_depth_works():
-	# Just verify the method doesn't throw an error
 	canvas.set_onion_skin_depth(5)
 	canvas.set_onion_skin_depth(1)
 	assert_true(true, "Canvas set_onion_skin_depth should work without error")

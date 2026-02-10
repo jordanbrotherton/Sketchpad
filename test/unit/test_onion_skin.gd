@@ -17,7 +17,6 @@ func before_each():
 	onion_skin.attach_project(project)
 
 func after_each():
-	# Clean up any remaining children to avoid orphan warnings
 	for child in onion_skin.get_children():
 		onion_skin.remove_child(child)
 		child.queue_free()

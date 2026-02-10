@@ -41,12 +41,10 @@ func render_page(page: Page) -> void:
 
 	onion_skin_renderer.render()
 
-## Toggles onion skinning on and off.
 func toggle_onion_skin() -> void:
 	onion_skin_renderer.toggle()
 
-## Sets the number of ghost frames to display backwards. [br]
-## [param new_depth] - Number of frames to show.
+## Sets the number of ghost frames to display backwards. 
 func set_onion_skin_depth(new_depth: int) -> void:
 	onion_skin_renderer.set_depth(new_depth)
 
