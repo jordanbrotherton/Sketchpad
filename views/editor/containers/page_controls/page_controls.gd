@@ -5,6 +5,8 @@ signal menu_toggle
 
 signal play_toggle
 
+signal onion_skin_toggle
+
 @export var menu_button: Button
 
 @export var next_page_button: Button
@@ -15,6 +17,8 @@ signal play_toggle
 @export var framerate_label: Label
 
 @export var play_button: Button
+
+@export var onion_skin_button: Button
 
 var is_playing = false
 
@@ -51,3 +55,6 @@ func _on_slider_value_changed(value: float) -> void:
 
 func _on_menu_button_pressed() -> void:
 	menu_toggle.emit()
+
+func _on_onion_skin_pressed() -> void:
+	onion_skin_toggle.emit()

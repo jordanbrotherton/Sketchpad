@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dtbl5w1umd51p" path="res://system/canvas/canvas.gd" id="1_nl8v8"]
 [ext_resource type="Script" uid="uid://d0bwusolhvbae" path="res://system/canvas/canvas_camera.gd" id="2_2nd50"]
+[ext_resource type="Script" path="res://system/canvas/onion_skin.gd" id="3_onion"]
 
 [node name="Canvas" type="Node2D" unique_id=502353309]
 script = ExtResource("1_nl8v8")
@@ -25,6 +26,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Layers" type="Node2D" parent="Control" unique_id=760557918]
+
+[node name="OnionSkin" type="Node2D" parent="Control"]
+script = ExtResource("3_onion")
 
 [node name="Dynamic" type="Node2D" parent="Control" unique_id=356778995]
 

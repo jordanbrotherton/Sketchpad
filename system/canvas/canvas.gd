@@ -5,8 +5,11 @@ signal canvas_input(event: InputEventMouse)
 
 var _project: Project
 
+const _OnionSkinRenderer = preload("res://system/canvas/onion_skin.gd")
+
 @onready var control_node: Control = $Control
 @onready var layers_node: Node2D = $Control/Layers
+@onready var onion_skin_renderer = $Control/OnionSkin
 @onready var dynamic_node: Node2D = $Control/Dynamic
 
 @onready var bake_viewport: Viewport = $BakeViewport
@@ -14,6 +17,7 @@ var _project: Project
 
 func attach_project(project: Project) -> void:
 	_project = project
+	onion_skin_renderer.attach_project(project)
 	_project.new_current_page.connect(render_page)
 
 ## Refreshes canvas sprites to current page. [br]
@@ -34,6 +38,17 @@ func render_page(page: Page) -> void:
 		layers_node.add_child(sprite)
 		if sprite is Sprite2D:
 			sprite.texture = texture
+
+	onion_skin_renderer.render()
+
+## Toggles onion skinning on and off.
+func toggle_onion_skin() -> void:
+	onion_skin_renderer.toggle()
+
+## Sets the number of ghost frames to display backwards. [br]
+## [param new_depth] - Number of frames to show.
+func set_onion_skin_depth(new_depth: int) -> void:
+	onion_skin_renderer.set_depth(new_depth)
 
 ## Bakes [code]dynamic_node[/code] contents to the current page.
 func bake_page() -> void:
