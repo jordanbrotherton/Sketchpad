@@ -1,5 +1,4 @@
 extends GutTest
-class_name TestOnionSkin
 
 const OnionSkinRenderer = preload("res://system/canvas/onion_skin.gd")
 
