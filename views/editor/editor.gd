@@ -24,6 +24,7 @@ func _ready() -> void:
 	page_controls.play_toggle.connect(
 		func(): playback_manager.is_playing = !playback_manager.is_playing
 		)
+	page_controls.onion_skin_toggle.connect(canvas.toggle_onion_skin)
 
 	project.new_project(256, 192)
 

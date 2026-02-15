@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://fduhdjv3ekah" path="res://views/editor/containers/page_controls/page_controls.gd" id="1_8tmw1"]
 
-[node name="PageControls" type="Control" unique_id=352413597 node_paths=PackedStringArray("menu_button", "next_page_button", "page_count_label", "prev_page_button", "framerate_slider", "framerate_label", "play_button")]
+[node name="PageControls" type="Control" unique_id=352413597 node_paths=PackedStringArray("menu_button", "next_page_button", "page_count_label", "prev_page_button", "framerate_slider", "framerate_label", "play_button", "onion_skin_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +17,7 @@ prev_page_button = NodePath("Panel/ToolbarContents/FrameControls/PrevButton")
 framerate_slider = NodePath("Panel/ToolbarContents/FrameControls/FRContainer/FRSlider")
 framerate_label = NodePath("Panel/ToolbarContents/FrameControls/FRContainer/Framerate")
 play_button = NodePath("Panel/ToolbarContents/FrameControls/PlayButton")
+onion_skin_button = NodePath("Panel/ToolbarContents/FrameControls/OnionSkinButton")
 
 [node name="Panel" type="Panel" parent="." unique_id=1178714550]
 layout_mode = 1
@@ -82,8 +83,14 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Play"
 
+[node name="OnionSkinButton" type="Button" parent="Panel/ToolbarContents/FrameControls"]
+layout_mode = 2
+toggle_mode = true
+text = "Onion Skin"
+
 [connection signal="pressed" from="Panel/ToolbarContents/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Panel/ToolbarContents/FrameControls/PrevButton" to="." method="_on_prev_button_pressed"]
 [connection signal="pressed" from="Panel/ToolbarContents/FrameControls/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="value_changed" from="Panel/ToolbarContents/FrameControls/FRContainer/FRSlider" to="." method="_on_slider_value_changed"]
 [connection signal="pressed" from="Panel/ToolbarContents/FrameControls/PlayButton" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Panel/ToolbarContents/FrameControls/OnionSkinButton" to="." method="_on_onion_skin_pressed"]
