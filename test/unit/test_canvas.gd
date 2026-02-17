@@ -22,7 +22,7 @@ func before_each():
 func test_canvas_render_page():
 	var page = project.get_current_page()
 	canvas.render_page(page)
-	assert_eq(canvas.layers_node.get_child_count(), page.layers.size(), 
+	assert_eq(canvas.layers_node.get_child_count(), page.layers.size(),
 	"Canvas should render all layers")
 
 func test_canvas_has_onion_skin_renderer():
@@ -31,7 +31,7 @@ func test_canvas_has_onion_skin_renderer():
 
 func test_canvas_toggle_onion_skin_works():
 	var renderer = canvas.onion_skin_renderer
-	
+
 	assert_false(renderer.enabled, "Onion skin should start disabled")
 
 	canvas.toggle_onion_skin()
