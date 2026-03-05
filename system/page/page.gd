@@ -44,12 +44,14 @@ func set_layer(idx: int, image: Image) -> void:
 ## Flattens the page into a single page. [br]
 ## Useful for exports and thumbnails.
 func flatten() -> Image:
-	var out = layers[0].duplicate()
-	for i in range(1, len(layers)):
-		var img = layers[i]
-		out.blend_rect(
-			img,
-			Rect2(Vector2.ZERO, img.get_size()),
-			Vector2.ZERO
-		)
-	return out
+	if not layers.is_empty():
+		var out = layers[0].duplicate()
+		for i in range(1, len(layers)):
+			var img = layers[i]
+			out.blend_rect(
+				img,
+				Rect2(Vector2.ZERO, img.get_size()),
+				Vector2.ZERO
+			)
+		return out
+	return null
