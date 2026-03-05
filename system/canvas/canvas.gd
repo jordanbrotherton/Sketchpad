@@ -20,9 +20,14 @@ func _ready() -> void:
 	camera.movable = camera_movable
 
 func attach_project(project: Project) -> void:
+	if _project and _project.new_current_page.is_connected(render_page):
+		_project.new_current_page.disconnect(render_page)
+	
 	_project = project
-	onion_skin_renderer.attach_project(project)
-	_project.new_current_page.connect(render_page)
+	
+	if _project:
+		_project.new_current_page.connect(render_page)
+		onion_skin_renderer.attach_project(project)
 
 ## Refreshes canvas sprites to current page. [br]
 ## [param page] - Page to render.
