@@ -40,7 +40,7 @@ func set_content() -> void:
 func set_layer(idx: int, image: Image) -> void:
 	layers[idx] = image
 	textures[idx].update(layers[idx])
-	
+
 ## Flattens the page into a single page. [br]
 ## Useful for exports and thumbnails.
 func flatten() -> Image:

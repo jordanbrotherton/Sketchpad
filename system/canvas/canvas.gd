@@ -22,9 +22,9 @@ func _ready() -> void:
 func attach_project(project: Project) -> void:
 	if _project and _project.new_current_page.is_connected(render_page):
 		_project.new_current_page.disconnect(render_page)
-	
+
 	_project = project
-	
+
 	if _project:
 		_project.new_current_page.connect(render_page)
 		onion_skin_renderer.attach_project(project)

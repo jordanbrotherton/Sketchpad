@@ -27,9 +27,9 @@ var _project: Project
 func attach_project(project: Project):
 	if _project and _project.new_current_page.is_connected(_update_view):
 		_project.new_current_page.disconnect(_update_view)
-	
+
 	_project = project
-	
+
 	if _project:
 		_project.new_current_page.connect(_update_view)
 
