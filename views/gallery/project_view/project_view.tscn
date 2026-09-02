@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dnqccfe8aldpk" path="res://views/gallery/project_view/project_view.gd" id="1_js4vb"]
 [ext_resource type="Script" uid="uid://dg2xr82qtamwp" path="res://system/playback/playback_manager.gd" id="2_5slws"]
 [ext_resource type="PackedScene" uid="uid://ca1h0fih55p5l" path="res://system/canvas/canvas.tscn" id="2_27bx2"]
+[ext_resource type="Material" uid="uid://c77trsro0wwlp" path="res://assets/theme/materials/reel_bg.tres" id="2_j5e58"]
+[ext_resource type="FontFile" uid="uid://i5siojf08apl" path="res://assets/fonts/nunito_black.ttf" id="3_c5cad"]
 [ext_resource type="Texture2D" uid="uid://cpybsyofujobm" path="res://assets/icons/close.png" id="4_adcp0"]
 [ext_resource type="Texture2D" uid="uid://c84sx5kuxsmdo" path="res://assets/icons/export.png" id="5_qdf0c"]
 [ext_resource type="Texture2D" uid="uid://bl3etdvqb8tx8" path="res://assets/icons/delete.png" id="6_4jhrg"]
@@ -14,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://204dw8mixm7u" path="res://widgets/toast/toast.tscn" id="12_0t10w"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_js4vb"]
+font = ExtResource("3_c5cad")
 font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_5slws"]
@@ -55,6 +58,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HeaderBar" type="ColorRect" parent="VBoxContainer" unique_id=1831932691]
+material = ExtResource("2_j5e58")
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 color = Color(0, 0.5803922, 1, 1)
@@ -120,38 +124,45 @@ render_target_update_mode = 4
 [node name="ButtonsContainer" type="ColorRect" parent="VBoxContainer" unique_id=1734604627]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+color = Color(0, 0, 0, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ButtonsContainer" unique_id=1260979736]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ButtonsContainer" unique_id=1582654197]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 1
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
-[node name="BackButton" type="Button" parent="VBoxContainer/ButtonsContainer/HBoxContainer" unique_id=425780190]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ButtonsContainer/MarginContainer" unique_id=1260979736]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="VBoxContainer/ButtonsContainer/MarginContainer/HBoxContainer" unique_id=425780190]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Back"
 icon = ExtResource("4_adcp0")
 expand_icon = true
 
-[node name="ExportButton" type="Button" parent="VBoxContainer/ButtonsContainer/HBoxContainer" unique_id=2026312604]
+[node name="ExportButton" type="Button" parent="VBoxContainer/ButtonsContainer/MarginContainer/HBoxContainer" unique_id=2026312604]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Export"
 icon = ExtResource("5_qdf0c")
 expand_icon = true
 
-[node name="GIFButton" type="Button" parent="VBoxContainer/ButtonsContainer/HBoxContainer" unique_id=595223954]
+[node name="GIFButton" type="Button" parent="VBoxContainer/ButtonsContainer/MarginContainer/HBoxContainer" unique_id=595223954]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Make GIF"
 icon = ExtResource("5_qdf0c")
 expand_icon = true
 
-[node name="DeleteButton" type="Button" parent="VBoxContainer/ButtonsContainer/HBoxContainer" unique_id=1937983806]
+[node name="DeleteButton" type="Button" parent="VBoxContainer/ButtonsContainer/MarginContainer/HBoxContainer" unique_id=1937983806]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = ExtResource("6_cxlcf")
@@ -162,7 +173,7 @@ text = "Delete"
 icon = ExtResource("6_4jhrg")
 expand_icon = true
 
-[node name="EditButton" type="Button" parent="VBoxContainer/ButtonsContainer/HBoxContainer" unique_id=1855106529]
+[node name="EditButton" type="Button" parent="VBoxContainer/ButtonsContainer/MarginContainer/HBoxContainer" unique_id=1855106529]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Edit"
@@ -177,8 +188,8 @@ use_native_dialog = true
 [node name="Toast" parent="." unique_id=1659992079 instance=ExtResource("12_0t10w")]
 layout_mode = 1
 
-[connection signal="pressed" from="VBoxContainer/ButtonsContainer/HBoxContainer/BackButton" to="." method="close"]
-[connection signal="pressed" from="VBoxContainer/ButtonsContainer/HBoxContainer/ExportButton" to="." method="export_project"]
-[connection signal="pressed" from="VBoxContainer/ButtonsContainer/HBoxContainer/GIFButton" to="." method="export_gif"]
-[connection signal="pressed" from="VBoxContainer/ButtonsContainer/HBoxContainer/DeleteButton" to="." method="delete_project"]
-[connection signal="pressed" from="VBoxContainer/ButtonsContainer/HBoxContainer/EditButton" to="." method="trigger_load"]
+[connection signal="pressed" from="VBoxContainer/ButtonsContainer/MarginContainer/HBoxContainer/BackButton" to="." method="close"]
+[connection signal="pressed" from="VBoxContainer/ButtonsContainer/MarginContainer/HBoxContainer/ExportButton" to="." method="export_project"]
+[connection signal="pressed" from="VBoxContainer/ButtonsContainer/MarginContainer/HBoxContainer/GIFButton" to="." method="export_gif"]
+[connection signal="pressed" from="VBoxContainer/ButtonsContainer/MarginContainer/HBoxContainer/DeleteButton" to="." method="delete_project"]
+[connection signal="pressed" from="VBoxContainer/ButtonsContainer/MarginContainer/HBoxContainer/EditButton" to="." method="trigger_load"]

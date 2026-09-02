@@ -19,8 +19,10 @@
 [ext_resource type="StyleBox" uid="uid://nlxio7waiydm" path="res://assets/theme/styleboxes/tab_container/tabbar_background.tres" id="12_dydml"]
 [ext_resource type="StyleBox" uid="uid://dij2uuiwlchht" path="res://assets/theme/styleboxes/line_edit/normal.tres" id="12_tmfyk"]
 [ext_resource type="StyleBox" uid="uid://cdflokwp38y1t" path="res://assets/theme/styleboxes/tooltip.tres" id="19_tmfyk"]
+[ext_resource type="FontFile" uid="uid://ce5lyjgdripao" path="res://assets/fonts/nunito_bold.ttf" id="20_5iw1l"]
 
 [resource]
+default_font = ExtResource("20_5iw1l")
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/styles/disabled = ExtResource("1_wjblb")
 Button/styles/hover = ExtResource("2_vuo4h")
