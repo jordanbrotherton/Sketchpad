@@ -3,10 +3,10 @@ extends Node
 
 var is_playing: bool = false
 
+var audio_stream_player: AudioStreamPlayer
+
 var _project: Project
 var _timer: float = 0.0
-
-var audio_stream_player: AudioStreamPlayer
 
 func attach_project(project: Project) -> void:
 	# Purge leftover audio players.
