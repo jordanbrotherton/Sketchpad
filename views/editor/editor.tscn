@@ -1,14 +1,21 @@
 [gd_scene format=3 uid="uid://bhgj2qy6e3eb5"]
 
 [ext_resource type="Script" uid="uid://o1jeu63no2yo" path="res://views/editor/editor.gd" id="1_hjfbv"]
+[ext_resource type="Script" uid="uid://dbeqk07j0pwl7" path="res://views/editor/toolset.gd" id="2_1hrb2"]
 [ext_resource type="PackedScene" uid="uid://ca1h0fih55p5l" path="res://system/canvas/canvas.tscn" id="2_uvf6n"]
 [ext_resource type="PackedScene" uid="uid://cj0amp2lxwem5" path="res://views/editor/containers/page_controls/page_controls.tscn" id="3_3o6tv"]
+[ext_resource type="Script" uid="uid://camjhvahg2hkw" path="res://tools/tool.gd" id="3_1733i"]
+[ext_resource type="Resource" uid="uid://b6nko3u31cspd" path="res://tools/brush/brush.tres" id="4_1733i"]
 [ext_resource type="PackedScene" uid="uid://d1bvrkbad6iok" path="res://views/editor/containers/edit_extras/edit_extras.tscn" id="4_mq76j"]
 [ext_resource type="Script" uid="uid://dg2xr82qtamwp" path="res://system/playback/playback_manager.gd" id="4_uvf6n"]
+[ext_resource type="Resource" uid="uid://byb3484qqxhi7" path="res://tools/eraser/eraser.tres" id="5_yydx7"]
+[ext_resource type="Resource" uid="uid://b5s1gl2gxjcfm" path="res://tools/paint_bucket/paint_bucket.tres" id="6_1hrb2"]
 [ext_resource type="PackedScene" uid="uid://5ufeyntsmfev" path="res://views/gallery/gallery.tscn" id="6_i41vg"]
 [ext_resource type="PackedScene" uid="uid://d3qj36conyfim" path="res://views/menu/menu.tscn" id="6_o0wpe"]
+[ext_resource type="Resource" uid="uid://bd0lp47175we2" path="res://tools/dragger/dragger.tres" id="7_1733i"]
+[ext_resource type="PackedScene" uid="uid://cjepwvluuh3cc" path="res://views/editor/containers/toolbar/toolbar.tscn" id="8_rpm6l"]
 
-[node name="Editor" type="Control" unique_id=1442565710 node_paths=PackedStringArray("canvas", "page_controls", "playback_manager", "edit_extras")]
+[node name="Editor" type="Control" unique_id=1442565710 node_paths=PackedStringArray("canvas", "page_controls", "playback_manager", "edit_extras", "toolset")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,6 +27,12 @@ canvas = NodePath("CanvasContainer/CanvasViewport/Canvas")
 page_controls = NodePath("PageControls")
 playback_manager = NodePath("PlaybackManager")
 edit_extras = NodePath("EditExtras")
+toolset = NodePath("Toolset")
+
+[node name="Toolset" type="Node" parent="." unique_id=206351235]
+script = ExtResource("2_1hrb2")
+tools = Array[ExtResource("3_1733i")]([ExtResource("4_1733i"), ExtResource("5_yydx7"), ExtResource("6_1hrb2"), ExtResource("7_1733i")])
+metadata/_custom_type_script = "uid://dbeqk07j0pwl7"
 
 [node name="CanvasContainer" type="SubViewportContainer" parent="." unique_id=1491532430]
 layout_mode = 1
@@ -44,6 +57,18 @@ layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 grow_vertical = 0
+
+[node name="Toolbar" parent="." unique_id=309281727 node_paths=PackedStringArray("editor") instance=ExtResource("8_rpm6l")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 1
+editor = NodePath("..")
 
 [node name="EditExtras" parent="." unique_id=2042908143 instance=ExtResource("4_mq76j")]
 visible = false

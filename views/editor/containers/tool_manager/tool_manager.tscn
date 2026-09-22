@@ -1,14 +1,6 @@
 [gd_scene format=3 uid="uid://cloa3c54w8ah8"]
 
-[ext_resource type="PackedScene" uid="uid://dm0t60quyv3bj" path="res://tools/brush/brush_menu.tscn" id="1_omk8e"]
 [ext_resource type="Script" uid="uid://dmdsa85guxgav" path="res://views/editor/containers/tool_manager/tool_manager.gd" id="1_vjvnp"]
-[ext_resource type="PackedScene" uid="uid://dpxmvb2d305l5" path="res://tools/paint_bucket/paint_bucket_menu.tscn" id="2_voh52"]
-[ext_resource type="PackedScene" uid="uid://d0v3i8vgql1sj" path="res://tools/eraser/eraser_menu.tscn" id="4_1gcu4"]
-[ext_resource type="PackedScene" uid="uid://cqm4tsb4pn43x" path="res://tools/dragger/dragger_menu.tscn" id="5_exmo2"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_exmo2"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_y4lxs"]
 
 [node name="Tools" type="Control" unique_id=1657501930 node_paths=PackedStringArray("tool_tab")]
 layout_mode = 3
@@ -27,28 +19,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
 tabs_position = 1
-
-[node name="Brush" parent="ToolList" unique_id=1654936513 node_paths=PackedStringArray("tool_manager") instance=ExtResource("1_omk8e")]
-layout_mode = 2
-button_group = SubResource("ButtonGroup_exmo2")
-tool_manager = NodePath("../..")
-
-[node name="Paint Bucket" parent="ToolList" unique_id=1220713478 instance=ExtResource("2_voh52")]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 1
-
-[node name="Eraser" parent="ToolList" unique_id=1505104656 node_paths=PackedStringArray("tool_manager") instance=ExtResource("4_1gcu4")]
-visible = false
-layout_mode = 2
-button_group = SubResource("ButtonGroup_y4lxs")
-tool_manager = NodePath("../..")
-metadata/_tab_index = 2
-
-[node name="Dragger" parent="ToolList" unique_id=1901649934 instance=ExtResource("5_exmo2")]
-visible = false
-layout_mode = 2
 
 [connection signal="tab_changed" from="ToolList" to="." method="_on_tool_list_tab_changed"]

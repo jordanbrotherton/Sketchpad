@@ -6,9 +6,20 @@ extends Control
 
 var _project: Project
 
+var toolviews: Dictionary[Tool, Node] = {}
+
 
 func _ready() -> void:
+	for tool in editor.toolset.tools:
+		var tool_control = tool.handler.instantiate()
+		tool_control.tool = tool
+		tool_tab.add_child(tool_control)
+		tool_control.assign_tool(tool)
+		tool_tab.set_tab_title(tool_tab.get_child_count() - 1, tool.name)
+		tool_tab.connect("tab_changed", Callable(self, "_on_tool_list_tab_changed"))
+		toolviews[tool] = tool_control
 	_on_tool_list_tab_changed(0)
+	editor.connect("tool_changed", Callable(self, "_on_tool_changed"))
 
 
 func attach_project(project: Project) -> void:
@@ -17,3 +28,7 @@ func attach_project(project: Project) -> void:
 
 func _on_tool_list_tab_changed(tab: int) -> void:
 	editor.current_tool = tool_tab.get_tab_control(tab).tool
+
+func _on_tool_changed(tool: Tool) -> void:
+	var index = editor.toolset.tools.find(tool)
+	tool_tab.current_tab = index

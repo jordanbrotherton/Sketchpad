@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dragger" format=3 uid="uid://bd0lp47175we2"]
+
+[ext_resource type="PackedScene" uid="uid://cqm4tsb4pn43x" path="res://tools/dragger/dragger_menu.tscn" id="1_8fdjc"]
+[ext_resource type="Script" uid="uid://cmoaigxlt61kr" path="res://tools/dragger/dragger.gd" id="1_w0x6r"]
+
+[resource]
+script = ExtResource("1_w0x6r")
+name = "Dragger"
+handler = ExtResource("1_8fdjc")
+metadata/_custom_type_script = "uid://cmoaigxlt61kr"

@@ -6,6 +6,10 @@ extends FullPanel
 var _project: Project
 
 
+func change_tab(tab: int) -> void:
+	tab_container.current_tab = tab
+
+
 func attach_project(project: Project):
 	_project = project
 	for node in tab_container.get_children():

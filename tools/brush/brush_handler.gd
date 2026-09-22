@@ -13,9 +13,9 @@ extends PanelContainer
 @export var default_brush_hardness = 1.0
 
 var brushes = [
-	load("res://tools/brush/big_circle/big_circle.tres"),
-	load("res://tools/brush/big_semi_square/big_semi_square.tres"),
-	load("res://tools/brush/big_square/big_square.tres")
+	load("res://tools/brush/big_circle/brush_template.png"),
+	load("res://tools/brush/big_semi_square/brush_template.png"),
+	load("res://tools/brush/big_square/brush_template.png")
 ]
 
 var scale_filter = Image.INTERPOLATE_NEAREST
@@ -23,7 +23,6 @@ var editor: Editor
 
 
 func _ready() -> void:
-	editor = tool_manager.editor
 	brush_list.item_selected.connect(_on_brush_selected)
 	thick_sldr.value_changed.connect(_on_thickness_changed)
 	hard_sldr.value_changed.connect(_on_hardness_changed)
@@ -39,6 +38,14 @@ func _ready() -> void:
 	_on_brush_selected(0)
 	thick_sldr.value = default_brush_width
 	hard_sldr.value = default_brush_hardness
+	color_picker.color = EditorState.color
+
+
+func assign_tool(tool: Tool) -> void:
+	editor = tool_manager.editor
+	self.tool = tool
+	thick_sldr.value = tool.width
+	hard_sldr.value = tool.hardness
 	color_picker.color = EditorState.color
 
 
@@ -62,11 +69,8 @@ func _on_editor_color_changed(value: Color) -> void:
 
 
 func _on_brush_selected(index: int) -> void:
-	brushes[index].hardness = tool.hardness
-	brushes[index].width = tool.width
-	tool = brushes[index]
+	tool.original_stamp = brushes[index]
 	tool.stamp_tex = tool.generate_stamp()
-	editor.current_tool = tool
 
 
 func _on_filter_selected() -> void:

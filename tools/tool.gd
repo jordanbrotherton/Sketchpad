@@ -3,6 +3,7 @@ extends Resource
 
 @export var name: String = "Base"
 @export var icon: Texture2D = PlaceholderTexture2D.new()
+@export var handler: PackedScene
 
 
 ## Triggers when the pointer is pressed down on the canvas. [br]

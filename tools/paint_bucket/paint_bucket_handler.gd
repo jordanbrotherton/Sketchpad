@@ -15,6 +15,9 @@ func _ready() -> void:
 	tolerance_sldr.value_changed.connect(_on_tolerance_changed)
 	EditorState.color_changed.connect(_on_editor_color_changed)
 
+
+func assign_tool(tool: Tool) -> void:
+	self.tool = tool
 	tolerance_sldr.value = tool.tolerance
 	color_picker.color = EditorState.color
 
