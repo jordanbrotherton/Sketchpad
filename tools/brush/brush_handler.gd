@@ -7,10 +7,11 @@ extends PanelContainer
 @export var color_picker: ColorPickerButton
 @export var brush_list: ItemList
 @export var button_group: ButtonGroup
-@export var tool_manager: ToolManager
 @export var tool: Brush
 @export var default_brush_width = 2.5
 @export var default_brush_hardness = 1.0
+
+var tool_manager: ToolManager
 
 var brushes = [
 	load("res://tools/brush/big_circle/brush_template.png"),
@@ -41,11 +42,11 @@ func _ready() -> void:
 	color_picker.color = EditorState.color
 
 
-func assign_tool(tool: Tool) -> void:
+func assign_tool(new_tool: Tool) -> void:
 	editor = tool_manager.editor
-	self.tool = tool
-	thick_sldr.value = tool.width
-	hard_sldr.value = tool.hardness
+	self.tool = new_tool
+	thick_sldr.value = new_tool.width
+	hard_sldr.value = new_tool.hardness
 	color_picker.color = EditorState.color
 
 

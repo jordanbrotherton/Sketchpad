@@ -4,9 +4,8 @@ extends Control
 @export var tool_tab: TabContainer
 @export var editor: Editor
 
-var _project: Project
-
 var toolviews: Dictionary[Tool, Node] = {}
+var _project: Project
 
 
 func _ready() -> void:
@@ -14,9 +13,9 @@ func _ready() -> void:
 		var tool_control = tool.handler.instantiate()
 		tool_control.tool = tool
 		tool_tab.add_child(tool_control)
+		tool_control.tool_manager = self
 		tool_control.assign_tool(tool)
 		tool_tab.set_tab_title(tool_tab.get_child_count() - 1, tool.name)
-		tool_tab.connect("tab_changed", Callable(self, "_on_tool_list_tab_changed"))
 		toolviews[tool] = tool_control
 	_on_tool_list_tab_changed(0)
 	editor.connect("tool_changed", Callable(self, "_on_tool_changed"))

@@ -6,10 +6,11 @@ extends PanelContainer
 @export var hard_label: Label
 @export var eraser_list: ItemList
 @export var button_group: ButtonGroup
-@export var tool_manager: ToolManager
 @export var tool: Eraser
 @export var default_eraser_width = 2.5
 @export var default_eraser_hardness = 1.0
+
+var tool_manager: ToolManager
 
 var erasers = [
 	load("res://tools/eraser/big_circle/eraser_template.png"),
@@ -38,11 +39,12 @@ func _ready() -> void:
 	_on_eraser_selected(0)
 
 
-func assign_tool(tool: Tool) -> void:
+
+func assign_tool(new_tool: Tool) -> void:
 	editor = tool_manager.editor
-	self.tool = tool
-	thick_sldr.value = tool.width
-	hard_sldr.value = tool.hardness
+	self.tool = new_tool
+	thick_sldr.value = new_tool.width
+	hard_sldr.value = new_tool.hardness
 
 
 func _on_thickness_changed(value: float) -> void:

@@ -5,6 +5,7 @@ extends PanelContainer
 @export var color_picker: ColorPickerButton
 @export var tool: PaintBucket
 
+var tool_manager: ToolManager
 var tolerance: float
 
 @onready var root: Node = get_tree().current_scene
@@ -16,9 +17,9 @@ func _ready() -> void:
 	EditorState.color_changed.connect(_on_editor_color_changed)
 
 
-func assign_tool(tool: Tool) -> void:
-	self.tool = tool
-	tolerance_sldr.value = tool.tolerance
+func assign_tool(new_tool: Tool) -> void:
+	self.tool = new_tool
+	tolerance_sldr.value = new_tool.tolerance
 	color_picker.color = EditorState.color
 
 
