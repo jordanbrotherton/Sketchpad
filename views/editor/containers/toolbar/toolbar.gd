@@ -10,7 +10,10 @@ func assign_tool(tool: Tool) -> void:
 func _ready() -> void:
 	for tool in editor.toolset.tools:
 		var button = Button.new()
-		button.text = tool.name
+		button.icon = tool.icon
+		button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		button.expand_icon = true
+		button.custom_minimum_size = Vector2(32, 32)
 		button.connect("pressed", Callable(self, "_tool_selected").bind(tool))
 		toolstrip.add_child(button)
 

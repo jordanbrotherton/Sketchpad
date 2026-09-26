@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bll2l6cggbn7b" path="res://tools/brush/brush.gd" id="1_aojua"]
 [ext_resource type="PackedScene" uid="uid://dm0t60quyv3bj" path="res://tools/brush/brush_menu.tscn" id="1_l7qst"]
+[ext_resource type="Texture2D" uid="uid://5lqc1w65yk6w" path="res://assets/icons/edit.png" id="2_ntkw0"]
 [ext_resource type="Texture2D" uid="uid://whaa4jwoxw6m" path="res://tools/brush/big_circle/brush_template.png" id="2_sc16d"]
 
 [resource]
 script = ExtResource("1_aojua")
 original_stamp = ExtResource("2_sc16d")
 name = "Brush"
+icon = ExtResource("2_ntkw0")
 handler = ExtResource("1_l7qst")
 metadata/_custom_type_script = "uid://bll2l6cggbn7b"

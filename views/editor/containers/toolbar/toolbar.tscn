@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dndqp8vo4tjdc" path="res://views/editor/containers/toolbar/toolbar.gd" id="1_3tvbo"]
 
 [node name="Toolbar" type="Control" unique_id=309281727 node_paths=PackedStringArray("toolstrip")]
-custom_minimum_size = Vector2(100, 200)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

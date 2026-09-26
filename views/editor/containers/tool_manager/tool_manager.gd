@@ -16,6 +16,7 @@ func _ready() -> void:
 		tool_control.tool_manager = self
 		tool_control.assign_tool(tool)
 		tool_tab.set_tab_title(tool_tab.get_child_count() - 1, tool.name)
+		tool_tab.set_tab_icon(tool_tab.get_child_count() - 1, tool.icon)
 		toolviews[tool] = tool_control
 	_on_tool_list_tab_changed(0)
 	editor.connect("tool_changed", Callable(self, "_on_tool_changed"))
