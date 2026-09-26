@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://whaa4jwoxw6m"
-path="res://.godot/imported/brush_template.png-68412756e71f6707ced911159fe0a315.ctex"
+uid="uid://c87yu5hb1kes5"
+path="res://.godot/imported/big_square.png-d8756811485b4d1c12c35ec6841fcb79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tools/brush/big_circle/brush_template.png"
-dest_files=["res://.godot/imported/brush_template.png-68412756e71f6707ced911159fe0a315.ctex"]
+source_file="res://assets/brush_templates/big_square.png"
+dest_files=["res://.godot/imported/big_square.png-d8756811485b4d1c12c35ec6841fcb79.ctex"]
 
 [params]
 

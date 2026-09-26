@@ -13,9 +13,9 @@ extends PanelContainer
 var tool_manager: ToolManager
 
 var erasers = [
-	load("res://tools/eraser/big_circle/eraser_template.png"),
-	load("res://tools/eraser/big_semi_square/eraser_template.png"),
-	load("res://tools/eraser/big_square/eraser_template.png")
+	load("res://assets/brush_templates/big_circle.png"),
+	load("res://assets/brush_templates/big_semi_square.png"),
+	load("res://assets/brush_templates/big_square.png")
 ]
 
 var scale_filter = Image.INTERPOLATE_NEAREST

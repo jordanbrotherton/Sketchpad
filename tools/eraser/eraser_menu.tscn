@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://d0v3i8vgql1sj"]
 
 [ext_resource type="Script" uid="uid://daud6c6tisyx3" path="res://tools/eraser/eraser_handler.gd" id="1_jxr3e"]
-[ext_resource type="Resource" uid="uid://y7djir36yiht" path="res://tools/eraser/big_circle/big_circle.tres" id="2_mkug3"]
-[ext_resource type="Texture2D" uid="uid://whaa4jwoxw6m" path="res://tools/brush/big_circle/brush_template.png" id="3_mkug3"]
-[ext_resource type="Texture2D" uid="uid://jfxxbdi7fdi2" path="res://tools/brush/big_semi_square/brush_template.png" id="4_xyeys"]
-[ext_resource type="Texture2D" uid="uid://cn802kqvyqt0m" path="res://tools/brush/big_square/brush_template.png" id="5_esoqk"]
+[ext_resource type="Texture2D" uid="uid://cfk507ghqjsck" path="res://assets/brush_templates/big_circle.png" id="3_2eqcr"]
+[ext_resource type="Texture2D" uid="uid://rhpixg1ij2rv" path="res://assets/brush_templates/big_semi_square.png" id="4_sq67x"]
+[ext_resource type="Texture2D" uid="uid://c87yu5hb1kes5" path="res://assets/brush_templates/big_square.png" id="5_rrd43"]
 [ext_resource type="ButtonGroup" uid="uid://bmbn2jt3ookl" path="res://system/controls/scaling_filter_button_group_eraser.tres" id="6_rfsfp"]
 [ext_resource type="PackedScene" uid="uid://qlpnoyvxuh46" path="res://tools/eraser/widgets/thickness_slider.tscn" id="7_xyeys"]
 [ext_resource type="PackedScene" uid="uid://bd7fuln4gepb6" path="res://tools/eraser/widgets/hardness_slider.tscn" id="8_esoqk"]
@@ -17,7 +16,6 @@ hard_sldr = NodePath("Main Panel/Modifier/EraserSetting/HdSldrContainer/Hardness
 hard_label = NodePath("Main Panel/Modifier/EraserSetting/HdSldrContainer/HBoxContainer/Value")
 eraser_list = NodePath("Main Panel/ErasersHeader/ErasesrList")
 button_group = ExtResource("6_rfsfp")
-tool = ExtResource("2_mkug3")
 metadata/_tab_index = 0
 
 [node name="Main Panel" type="VBoxContainer" parent="." unique_id=1225038371]
@@ -37,11 +35,11 @@ layout_mode = 2
 size_flags_vertical = 3
 item_count = 3
 item_0/text = "Big Circle"
-item_0/icon = ExtResource("3_mkug3")
+item_0/icon = ExtResource("3_2eqcr")
 item_1/text = "Big Semisquare"
-item_1/icon = ExtResource("4_xyeys")
+item_1/icon = ExtResource("4_sq67x")
 item_2/text = "Big Square"
-item_2/icon = ExtResource("5_esoqk")
+item_2/icon = ExtResource("5_rrd43")
 
 [node name="ButtonList" type="HBoxContainer" parent="Main Panel/ErasersHeader" unique_id=297616433]
 layout_mode = 2

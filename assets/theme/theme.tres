@@ -5,7 +5,7 @@
 [ext_resource type="StyleBox" uid="uid://dqt53wufyu1ru" path="res://assets/theme/styleboxes/button/button_hover_pressed.tres" id="3_aogi5"]
 [ext_resource type="StyleBox" uid="uid://bgve0atvu2bjx" path="res://assets/theme/styleboxes/button/button.tres" id="4_n52sg"]
 [ext_resource type="StyleBox" uid="uid://g3l1pge68j7c" path="res://assets/theme/styleboxes/button/button_pressed.tres" id="5_rolpm"]
-[ext_resource type="Texture2D" uid="uid://cn802kqvyqt0m" path="res://tools/brush/big_square/brush_template.png" id="6_vuo4h"]
+[ext_resource type="Texture2D" uid="uid://c87yu5hb1kes5" path="res://assets/brush_templates/big_square.png" id="6_tmfyk"]
 [ext_resource type="StyleBox" uid="uid://d2qdmr7hftinh" path="res://assets/theme/styleboxes/item_list.tres" id="6_yrhvu"]
 [ext_resource type="StyleBox" uid="uid://b5npapvoyu408" path="res://assets/theme/styleboxes/panel_default.tres" id="7_f7mop"]
 [ext_resource type="StyleBox" uid="uid://ckmrvwwa3nl5o" path="res://assets/theme/styleboxes/slider/grabber_area.tres" id="7_rolpm"]
@@ -27,8 +27,8 @@ Button/styles/hover = ExtResource("2_vuo4h")
 Button/styles/hover_pressed = ExtResource("3_aogi5")
 Button/styles/normal = ExtResource("4_n52sg")
 Button/styles/pressed = ExtResource("5_rolpm")
-HSlider/icons/grabber = ExtResource("6_vuo4h")
-HSlider/icons/grabber_highlight = ExtResource("6_vuo4h")
+HSlider/icons/grabber = ExtResource("6_tmfyk")
+HSlider/icons/grabber_highlight = ExtResource("6_tmfyk")
 HSlider/styles/grabber_area = ExtResource("7_rolpm")
 HSlider/styles/grabber_area_highlight = ExtResource("8_yrhvu")
 HSlider/styles/slider = ExtResource("9_f7mop")
