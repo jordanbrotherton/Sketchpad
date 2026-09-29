@@ -12,8 +12,9 @@ func _ready() -> void:
 	for tool in editor.toolset.tools:
 		var tool_control = tool.handler.instantiate()
 		tool_control.tool = tool
-		tool_tab.add_child(tool_control)
 		tool_control.tool_manager = self
+		tool_tab.add_child(tool_control)
+		tool.connect("settings_changed", Callable(tool_control, "_on_tool_settings_changed"))
 		tool_control.assign_tool(tool)
 		tool_tab.set_tab_title(tool_tab.get_child_count() - 1, tool.name)
 		tool_tab.set_tab_icon(tool_tab.get_child_count() - 1, tool.icon)

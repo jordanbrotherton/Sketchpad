@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://6m2tyutsyre1"]
+
+[ext_resource type="Script" uid="uid://dd6lviar777hv" path="res://tools/dragger/dragger_handler.gd" id="1_vqxon"]
+[ext_resource type="Script" uid="uid://cmoaigxlt61kr" path="res://tools/dragger/dragger.gd" id="2_gaart"]
+
+[sub_resource type="Resource" id="Resource_h4quk"]
+script = ExtResource("2_gaart")
+metadata/_custom_type_script = "uid://cmoaigxlt61kr"
+
+[node name="Dragger" type="PanelContainer" unique_id=1901649934]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vqxon")
+tool = SubResource("Resource_h4quk")
+metadata/_tab_index = 3
+
+[node name="Label2" type="Label" parent="." unique_id=1492746256]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Hold and drag the left mouse button to drag the layer."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

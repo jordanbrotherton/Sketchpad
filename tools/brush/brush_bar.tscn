@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://dxh6006utd0i0"]
+
+[ext_resource type="Script" uid="uid://dfxrwhc6j411j" path="res://tools/brush/brush_handler.gd" id="1_so28b"]
+[ext_resource type="PackedScene" uid="uid://b8jaotf7y1i4s" path="res://tools/brush/widgets/thickness_slider.tscn" id="3_lb4sf"]
+[ext_resource type="PackedScene" uid="uid://h3fgca6o0i8m" path="res://tools/brush/widgets/hardness_slider.tscn" id="4_sggpq"]
+
+[node name="Brush" type="PanelContainer" unique_id=1654936513 node_paths=PackedStringArray("thick_sldr", "thick_label", "hard_sldr", "hard_label", "color_picker")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_so28b")
+thick_sldr = NodePath("Main Panel/Modifier/BrushSetting/TkSldrContainer/HBoxContainer/ThicknessSlider")
+thick_label = NodePath("Main Panel/Modifier/BrushSetting/TkSldrContainer/HBoxContainer/Value")
+hard_sldr = NodePath("Main Panel/Modifier/BrushSetting/TkSldrContainer/HBoxContainer2/HardnessSlider")
+hard_label = NodePath("Main Panel/Modifier/BrushSetting/TkSldrContainer/HBoxContainer2/Value")
+color_picker = NodePath("Main Panel/Modifier/BrushSetting/TkSldrContainer/ColorHeader/ColorPickerButton")
+metadata/_tab_index = 0
+
+[node name="Main Panel" type="VBoxContainer" parent="." unique_id=1225038371]
+layout_mode = 2
+alignment = 1
+
+[node name="Modifier" type="HBoxContainer" parent="Main Panel" unique_id=544748102]
+layout_mode = 2
+alignment = 1
+
+[node name="BrushSetting" type="VBoxContainer" parent="Main Panel/Modifier" unique_id=768236304]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TkSldrContainer" type="HBoxContainer" parent="Main Panel/Modifier/BrushSetting" unique_id=714301677]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer" unique_id=365863318]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Title" type="Label" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer/HBoxContainer" unique_id=2016760910]
+layout_mode = 2
+text = "Thickness:"
+
+[node name="ThicknessSlider" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer/HBoxContainer" unique_id=1139794653 instance=ExtResource("3_lb4sf")]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Value" type="Label" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer/HBoxContainer" unique_id=1798334804]
+layout_mode = 2
+text = "2.5px"
+
+[node name="VSeparator1" type="VSeparator" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer" unique_id=194385954]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer" unique_id=1899614003]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Title" type="Label" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer/HBoxContainer2" unique_id=1612079100]
+layout_mode = 2
+text = "Hardness:"
+
+[node name="HardnessSlider" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer/HBoxContainer2" unique_id=1240724001 instance=ExtResource("4_sggpq")]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Value" type="Label" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer/HBoxContainer2" unique_id=1929641108]
+layout_mode = 2
+text = "0%"
+
+[node name="VSeparator2" type="VSeparator" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer" unique_id=900005814]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="ColorHeader" type="HBoxContainer" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer" unique_id=463427034]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Title" type="Label" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer/ColorHeader" unique_id=1775548022]
+layout_mode = 2
+text = "Color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer/ColorHeader" unique_id=673755781]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "a"

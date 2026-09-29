@@ -4,8 +4,8 @@ extends Tool
 @export var title: String = "Brush"
 @export var original_stamp: Texture2D = PlaceholderTexture2D.new()
 
-var width: float
-var hardness: float
+var width: float = 2.5
+var hardness: float = 1.0
 var scaling_filter: Image.Interpolation
 var stamp_tex: Texture2D
 var _stroke_node: Node2D

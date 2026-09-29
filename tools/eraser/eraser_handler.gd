@@ -23,20 +23,25 @@ var editor: Editor
 
 
 func _ready() -> void:
-	eraser_list.item_selected.connect(_on_eraser_selected)
-	thick_sldr.value_changed.connect(_on_thickness_changed)
-	hard_sldr.value_changed.connect(_on_hardness_changed)
+	if eraser_list:
+		eraser_list.item_selected.connect(_on_eraser_selected)
+	if thick_sldr:
+		thick_sldr.value_changed.connect(_on_thickness_changed)
+	if hard_sldr:
+		hard_sldr.value_changed.connect(_on_hardness_changed)
 
-	thick_sldr.value = default_eraser_width
-	hard_sldr.value = default_eraser_hardness
+	thick_sldr.value = tool.width if tool else default_eraser_width
+	hard_sldr.value = tool.hardness if tool else default_eraser_hardness
 
-	for button in button_group.get_buttons():
-		button.pressed.connect(_on_filter_selected)
-		if button.name == "Nearest":
-			button.button_pressed = true
+	if button_group:
+		for button in button_group.get_buttons():
+			button.pressed.connect(_on_filter_selected)
+			if button.name == "Nearest":
+				button.button_pressed = true
 
-	eraser_list.select(0)
-	_on_eraser_selected(0)
+	if tool_manager:
+		eraser_list.select(0)
+		_on_eraser_selected(0)
 
 
 
@@ -50,17 +55,27 @@ func assign_tool(new_tool: Tool) -> void:
 func _on_thickness_changed(value: float) -> void:
 	thick_label.text = "%dpx" % value
 	tool.width = value
+	tool.emit_signal("settings_changed")
 
 
 func _on_hardness_changed(value: float) -> void:
 	hard_label.text = "%d%%" % (value * 100)
 	tool.hardness = value
 	tool.filter = tool.generate_filter()
+	tool.emit_signal("settings_changed")
 
 
 func _on_eraser_selected(index: int) -> void:
 	tool.original_stamp = erasers[index]
 	tool.filter = tool.generate_filter()
+	tool.emit_signal("settings_changed")
+
+
+func _on_tool_settings_changed() -> void:
+	if hard_sldr:
+		hard_sldr.value = tool.hardness
+	if thick_sldr:
+		thick_sldr.value = tool.width
 
 
 func _on_filter_selected() -> void:

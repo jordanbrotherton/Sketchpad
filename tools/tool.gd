@@ -1,9 +1,12 @@
 class_name Tool
 extends Resource
 
+signal settings_changed
+
 @export var name: String = "Base"
 @export var icon: Texture2D = PlaceholderTexture2D.new()
 @export var handler: PackedScene
+@export var handler_bar: PackedScene
 
 
 ## Triggers when the pointer is pressed down on the canvas. [br]

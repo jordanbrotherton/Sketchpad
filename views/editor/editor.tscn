@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://o1jeu63no2yo" path="res://views/editor/editor.gd" id="1_hjfbv"]
 [ext_resource type="Script" uid="uid://dbeqk07j0pwl7" path="res://views/editor/toolset.gd" id="2_1hrb2"]
+[ext_resource type="PackedScene" uid="uid://uxn4y3hxtgqs" path="res://views/editor/containers/tool_settings_bar/tool_settings_bar.tscn" id="2_1733i"]
 [ext_resource type="PackedScene" uid="uid://ca1h0fih55p5l" path="res://system/canvas/canvas.tscn" id="2_uvf6n"]
 [ext_resource type="PackedScene" uid="uid://cj0amp2lxwem5" path="res://views/editor/containers/page_controls/page_controls.tscn" id="3_3o6tv"]
 [ext_resource type="Script" uid="uid://camjhvahg2hkw" path="res://tools/tool.gd" id="3_1733i"]
@@ -71,6 +72,13 @@ offset_bottom = 75.0
 grow_horizontal = 1
 editor = NodePath("..")
 
+[node name="ToolSettingsBar" parent="." unique_id=1496915535 instance=ExtResource("2_1733i")]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 1
+anchors_preset = 10
+anchor_bottom = 0.0
+grow_vertical = 1
+
 [node name="EditExtras" parent="." unique_id=2042908143 instance=ExtResource("4_mq76j")]
 visible = false
 layout_mode = 1
@@ -101,6 +109,7 @@ menu = NodePath("../Menu")
 [node name="ProjectView" parent="Gallery" index="1" unique_id=1095160411 node_paths=PackedStringArray("editor")]
 editor = NodePath("../..")
 
+[connection signal="tool_changed" from="." to="ToolSettingsBar" method="_on_editor_tool_changed"]
 [connection signal="play_toggle" from="PageControls" to="PlaybackManager" method="toggle_playback_state"]
 
 [editable path="EditExtras"]

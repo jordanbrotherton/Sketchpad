@@ -24,26 +24,33 @@ var editor: Editor
 
 
 func _ready() -> void:
-	brush_list.item_selected.connect(_on_brush_selected)
-	thick_sldr.value_changed.connect(_on_thickness_changed)
-	hard_sldr.value_changed.connect(_on_hardness_changed)
-	color_picker.color_changed.connect(_on_color_changed)
+	if brush_list:
+		brush_list.item_selected.connect(_on_brush_selected)
+	if thick_sldr:
+		thick_sldr.value_changed.connect(_on_thickness_changed)
+	if hard_sldr:
+		hard_sldr.value_changed.connect(_on_hardness_changed)
+	if color_picker:
+		color_picker.color_changed.connect(_on_color_changed)
 	EditorState.color_changed.connect(_on_editor_color_changed)
 
-	for button in button_group.get_buttons():
-		button.pressed.connect(_on_filter_selected)
-		if button.name == "Nearest":
-			button.button_pressed = true
+	if button_group:
+		for button in button_group.get_buttons():
+			button.pressed.connect(_on_filter_selected)
+			if button.name == "Nearest":
+				button.button_pressed = true
 
-	brush_list.select(0)
-	_on_brush_selected(0)
-	thick_sldr.value = default_brush_width
-	hard_sldr.value = default_brush_hardness
+	if tool_manager and brush_list:
+		brush_list.select(0)
+		_on_brush_selected(0)
+	thick_sldr.value = tool.width if tool else default_brush_width
+	hard_sldr.value = tool.hardness if tool else default_brush_hardness
 	color_picker.color = EditorState.color
 
 
 func assign_tool(new_tool: Tool) -> void:
-	editor = tool_manager.editor
+	if tool_manager:
+		editor = tool_manager.editor
 	self.tool = new_tool
 	thick_sldr.value = new_tool.width
 	hard_sldr.value = new_tool.hardness
@@ -53,16 +60,19 @@ func assign_tool(new_tool: Tool) -> void:
 func _on_thickness_changed(value: float) -> void:
 	thick_label.text = "%dpx" % value
 	tool.width = value
+	tool.emit_signal("settings_changed")
 
 
 func _on_hardness_changed(value: float) -> void:
 	hard_label.text = "%d%%" % (value * 100)
 	tool.hardness = value
 	tool.stamp_tex = tool.generate_stamp()
+	tool.emit_signal("settings_changed")
 
 
 func _on_color_changed(color: Color) -> void:
 	EditorState.color = color
+	tool.emit_signal("settings_changed")
 
 
 func _on_editor_color_changed(value: Color) -> void:
@@ -72,6 +82,16 @@ func _on_editor_color_changed(value: Color) -> void:
 func _on_brush_selected(index: int) -> void:
 	tool.original_stamp = brushes[index]
 	tool.stamp_tex = tool.generate_stamp()
+	tool.emit_signal("settings_changed")
+
+
+func _on_tool_settings_changed() -> void:
+	if hard_sldr:
+		hard_sldr.value = tool.hardness
+	if thick_sldr:
+		thick_sldr.value = tool.width
+	if color_picker:
+		color_picker.color = EditorState.color
 
 
 func _on_filter_selected() -> void:
