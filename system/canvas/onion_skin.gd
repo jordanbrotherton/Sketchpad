@@ -38,6 +38,7 @@ func render() -> void:
 
 func _add_frame(page: Page, opacity: float) -> void:
 	var textures = page.get_content()
+	var i = 0
 	for texture in textures:
 		var sprite = Sprite2D.new()
 		sprite.centered = false
@@ -45,6 +46,10 @@ func _add_frame(page: Page, opacity: float) -> void:
 		sprite.modulate = Color(1, 1, 1, opacity)
 		sprite.texture = texture
 		add_child(sprite)
+		if sprite is Sprite2D:
+			sprite.z_index = i
+		i += 2
+
 
 
 func _clear_children() -> void:
