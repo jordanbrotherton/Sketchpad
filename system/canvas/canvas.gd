@@ -43,6 +43,7 @@ func render_page(page: Page) -> void:
 		node.queue_free()
 
 	var textures = page.get_content()
+	var i = 1
 	for texture in textures:
 		var sprite = Sprite2D.new()
 		sprite.centered = false
@@ -50,6 +51,8 @@ func render_page(page: Page) -> void:
 		layers_node.add_child(sprite)
 		if sprite is Sprite2D:
 			sprite.texture = texture
+			sprite.z_index = i
+		i += 2
 
 	onion_skin_renderer.render()
 
