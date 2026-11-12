@@ -41,6 +41,7 @@ alignment = 1
 
 [node name="Title" type="Label" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer/HBoxContainer" unique_id=2016760910]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Thickness:"
 
 [node name="ThicknessSlider" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer/HBoxContainer" unique_id=1139794653 instance=ExtResource("2_ll213")]
@@ -50,6 +51,7 @@ size_flags_vertical = 4
 
 [node name="Value" type="Label" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer/HBoxContainer" unique_id=1798334804]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "3px"
 
 [node name="VSeparator1" type="VSeparator" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer" unique_id=194385954]
@@ -64,6 +66,7 @@ alignment = 1
 
 [node name="Title" type="Label" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer/HBoxContainer2" unique_id=1612079100]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Hardness:"
 
 [node name="HardnessSlider" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer/HBoxContainer2" unique_id=1240724001 instance=ExtResource("3_5kngf")]
@@ -73,4 +76,5 @@ size_flags_vertical = 4
 
 [node name="Value" type="Label" parent="Main Panel/Modifier/BrushSetting/TkSldrContainer/HBoxContainer2" unique_id=1929641108]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0%"

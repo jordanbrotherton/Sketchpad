@@ -45,6 +45,7 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_vertical = 3
 current_tab = 0
+tabs_position = 1
 tab_0/icon = ExtResource("2_b768k")
 tab_1/icon = ExtResource("3_2tc28")
 tab_2/icon = ExtResource("4_062x0")

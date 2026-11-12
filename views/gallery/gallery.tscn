@@ -42,26 +42,36 @@ item_0/icon = ExtResource("2_ji6f5")
 [node name="ButtonContainer" type="ColorRect" parent="VBoxContainer" unique_id=1769349854]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+color = Color(0, 0, 0, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ButtonContainer" unique_id=1051004414]
-custom_minimum_size = Vector2(0, 48)
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ButtonContainer" unique_id=712655406]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -5.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 1
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ButtonContainer/MarginContainer" unique_id=1051004414]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_constants/separation = 5
 alignment = 1
 
-[node name="BackButton" type="Button" parent="VBoxContainer/ButtonContainer/HBoxContainer" unique_id=1150510283]
+[node name="BackButton" type="Button" parent="VBoxContainer/ButtonContainer/MarginContainer/HBoxContainer" unique_id=1150510283]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Back"
 icon = ExtResource("3_v4i6t")
 expand_icon = true
 
-[node name="ImportButton" type="Button" parent="VBoxContainer/ButtonContainer/HBoxContainer" unique_id=1332449114]
+[node name="ImportButton" type="Button" parent="VBoxContainer/ButtonContainer/MarginContainer/HBoxContainer" unique_id=1332449114]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Import"
@@ -81,5 +91,5 @@ filters = PackedStringArray("*.res")
 use_native_dialog = true
 
 [connection signal="item_selected" from="VBoxContainer/ItemList" to="." method="_on_item_selected"]
-[connection signal="pressed" from="VBoxContainer/ButtonContainer/HBoxContainer/BackButton" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonContainer/HBoxContainer/ImportButton" to="." method="import_project"]
+[connection signal="pressed" from="VBoxContainer/ButtonContainer/MarginContainer/HBoxContainer/BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonContainer/MarginContainer/HBoxContainer/ImportButton" to="." method="import_project"]

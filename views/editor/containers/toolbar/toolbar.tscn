@@ -2,6 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dndqp8vo4tjdc" path="res://views/editor/containers/toolbar/toolbar.gd" id="1_3tvbo"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3tvbo"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.51718444, 0.5171845, 0.5171842, 1)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+shadow_color = Color(0, 0, 0, 0.19607843)
+shadow_size = 4
+
 [node name="Toolbar" type="Control" unique_id=309281727 node_paths=PackedStringArray("toolstrip")]
 layout_mode = 3
 anchors_preset = 15
@@ -19,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3tvbo")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=101953806]
 layout_mode = 1

@@ -16,6 +16,14 @@
 [ext_resource type="Resource" uid="uid://bd0lp47175we2" path="res://tools/dragger/dragger.tres" id="7_1733i"]
 [ext_resource type="PackedScene" uid="uid://cjepwvluuh3cc" path="res://views/editor/containers/toolbar/toolbar.tscn" id="8_rpm6l"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1733i"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.51718444, 0.5171845, 0.5171842, 1)
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.19607843)
+shadow_size = 4
+
 [node name="Editor" type="Control" unique_id=1442565710 node_paths=PackedStringArray("canvas", "page_controls", "playback_manager", "edit_extras", "toolset")]
 layout_mode = 3
 anchors_preset = 15
@@ -53,10 +61,13 @@ render_target_update_mode = 4
 camera_movable = true
 
 [node name="PageControls" parent="." unique_id=352413597 instance=ExtResource("3_3o6tv")]
-custom_minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(600, 48)
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
+anchor_right = 0.5
+offset_top = -48.0
 grow_vertical = 0
 
 [node name="Toolbar" parent="." unique_id=309281727 node_paths=PackedStringArray("editor") instance=ExtResource("8_rpm6l")]
@@ -75,9 +86,15 @@ editor = NodePath("..")
 [node name="ToolSettingsBar" parent="." unique_id=1496915535 instance=ExtResource("2_1733i")]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.0
+offset_left = -300.0
+offset_right = 300.0
+offset_bottom = 48.0
 grow_vertical = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_1733i")
 
 [node name="EditExtras" parent="." unique_id=2042908143 instance=ExtResource("4_mq76j")]
 visible = false
