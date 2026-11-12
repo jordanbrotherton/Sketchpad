@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://ii77ofn0qrer"]
+
+[ext_resource type="Script" uid="uid://dlrm71q0flrum" path="res://tools/paint_bucket/paint_bucket_handler.gd" id="1_5qfmn"]
+[ext_resource type="Script" uid="uid://bkfy5dxh8w0kk" path="res://tools/paint_bucket/paint_bucket.gd" id="2_w0o2b"]
+[ext_resource type="PackedScene" uid="uid://b5xysuscwt8p4" path="res://tools/paint_bucket/widgets/tolerance_slider.tscn" id="3_ur6f6"]
+
+[sub_resource type="Resource" id="Resource_57axg"]
+script = ExtResource("2_w0o2b")
+tolerance = 5.0
+metadata/_custom_type_script = "uid://bkfy5dxh8w0kk"
+
+[node name="PaintBucket" type="PanelContainer" unique_id=1654936513 node_paths=PackedStringArray("tolerance_sldr", "tolerance_label", "color_picker")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5qfmn")
+tolerance_sldr = NodePath("Main Panel/Modifier/HBoxContainer/TolearnceSlider")
+tolerance_label = NodePath("Main Panel/Modifier/HBoxContainer/Value")
+color_picker = NodePath("Main Panel/Modifier/ColorHeader/ColorPickerButton")
+tool = SubResource("Resource_57axg")
+metadata/_tab_index = 0
+
+[node name="Main Panel" type="VBoxContainer" parent="." unique_id=1225038371]
+layout_mode = 2
+alignment = 1
+
+[node name="Modifier" type="HBoxContainer" parent="Main Panel" unique_id=544748102]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main Panel/Modifier" unique_id=1899614003]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="Main Panel/Modifier/HBoxContainer" unique_id=1612079100]
+layout_mode = 2
+text = "Tolerance: "
+
+[node name="TolearnceSlider" parent="Main Panel/Modifier/HBoxContainer" unique_id=88929176 instance=ExtResource("3_ur6f6")]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Value" type="Label" parent="Main Panel/Modifier/HBoxContainer" unique_id=1929641108]
+layout_mode = 2
+text = "0%"
+
+[node name="VSeparator2" type="VSeparator" parent="Main Panel/Modifier" unique_id=900005814]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="ColorHeader" type="HBoxContainer" parent="Main Panel/Modifier" unique_id=1546839807]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Title" type="Label" parent="Main Panel/Modifier/ColorHeader" unique_id=1775548022]
+layout_mode = 2
+text = "Color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Main Panel/Modifier/ColorHeader" unique_id=673755781]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "a"

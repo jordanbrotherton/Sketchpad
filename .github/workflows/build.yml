@@ -1,9 +1,12 @@
 name: "Build"
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 env:
-  GODOT_VERSION: 4.6
+  GODOT_VERSION: 4.7.2
   EXPORT_NAME: sketchpad
   PROJECT_PATH: .
 
@@ -11,8 +14,9 @@ jobs:
   export-windows:
     name: Windows Export
     runs-on: ubuntu-24.04
+    if: github.repository == 'ufosc/Sketchpad'
     container:
-      image: barichello/godot-ci:4.6
+      image: barichello/godot-ci:4.7.2
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,8 +43,9 @@ jobs:
   export-linux:
     name: Linux Export
     runs-on: ubuntu-24.04  # Use 24.04 with godot 4
+    if: github.repository == 'ufosc/Sketchpad'
     container:
-      image: barichello/godot-ci:4.6
+      image: barichello/godot-ci:4.7.2
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -64,9 +69,14 @@ jobs:
 
   export-web:
     name: Web Export
+    if: github.repository == 'ufosc/Sketchpad'
     runs-on: ubuntu-24.04  # Use 24.04 with godot 4
+    env:
+      GH_TOKEN: ${{ github.token }}
+    permissions:
+      contents: read
     container:
-      image: barichello/godot-ci:4.6
+      image: barichello/godot-ci:4.7.2
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -90,6 +100,7 @@ jobs:
           path: build/web
 
   deploy:
+      if: github.repository == 'ufosc/Sketchpad'
       permissions:
         pages: write
         id-token: write
